@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bean There Cafe: Gestalt and Forms</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to main content</a>
+
+    <!-- View controls: switch the whole page between a messy and a refined layout -->
+    <aside class="controls" aria-label="View controls">
+      <fieldset>
+        <legend>Design view</legend>
+        <label
+          ><input
+            type="radio"
+            name="view"
+            id="view-refined"
+            value="refined"
+            checked
+          />
+          Refined</label
+        >
+        <label
+          ><input type="radio" name="view" id="view-messy" value="messy" />
+          Messy</label
+        >
+      </fieldset>
+      <label class="overlay-toggle"
+        ><input type="checkbox" id="overlay" /> Show Gestalt labels</label
+      >
+    </aside>
+
+    <header>
+      <h1>Bean There Cafe</h1>
+      <p class="tagline">Locally roasted since 2015.</p>
+    </header>
+
+    <nav aria-label="Main">
+      <ul data-gestalt="Proximity">
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main id="main">
+      <section class="hero" id="about" aria-labelledby="about-h">
+        <div
+          class="hero-img"
+          data-gestalt="Figure / Ground"
+          role="img"
+          aria-label="Illustration of a white coffee cup on a tan background"
+        ></div>
+        <div class="hero-text">
+          <h2 id="about-h">Fresh coffee, friendly faces</h2>
+          <p>
+            We roast our beans every morning and bake pastries in-house. Stop by
+            for a latte and stay for the conversation.
+          </p>
+        </div>
+      </section>
+
+      <section id="menu" aria-labelledby="menu-h">
+        <h2 id="menu-h">Menu</h2>
+        <div class="cards">
+          <article class="card" data-gestalt="Similarity">
+            <h3>Drip coffee</h3>
+            <p class="price">$3.00</p>
+            <p class="desc">Medium roast, refills while you stay.</p>
+          </article>
+          <article class="card" data-gestalt="Similarity">
+            <h3>Latte</h3>
+            <p class="price">$4.50</p>
+            <p class="desc">Double espresso with steamed milk.</p>
+          </article>
+          <article class="card" data-gestalt="Similarity">
+            <h3>Blueberry muffin</h3>
+            <p class="price">$3.25</p>
+            <p class="desc">Baked fresh every morning.</p>
+          </article>
+        </div>
+        <p class="hours">Open daily 7am to 6pm.</p>
+      </section>
+
+      <section id="contact" aria-labelledby="contact-h">
+        <h2 id="contact-h">Contact us</h2>
+
+        <form
+          id="contact-form"
+          action="#contact"
+          method="get"
+          data-gestalt="Common Region"
+        >
+          <fieldset>
+            <legend>About you</legend>
+            <div class="field">
+              <label for="name">Full name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                autocomplete="name"
+                aria-describedby="name-error"
+                required
+              />
+              <p class="error" id="name-error">Enter your full name.</p>
+            </div>
+            <div class="field">
+              <label for="email">Email address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                autocomplete="email"
+                aria-describedby="email-hint email-error"
+                required
+              />
+              <p class="hint" id="email-hint">
+                We only use this to reply to you.
+              </p>
+              <p class="error" id="email-error">
+                Enter an email address like name@example.com.
+              </p>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Your message</legend>
+            <div class="field">
+              <label for="topic">Topic</label>
+              <select
+                id="topic"
+                name="topic"
+                aria-describedby="topic-error"
+                required
+              >
+                <option value="">Choose a topic</option>
+                <option>Catering</option>
+                <option>Feedback</option>
+                <option>Hours and location</option>
+              </select>
+              <p class="error" id="topic-error">Choose a topic.</p>
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                aria-describedby="message-error"
+                required
+              ></textarea>
+              <p class="error" id="message-error">Enter a message.</p>
+            </div>
+          </fieldset>
+
+          <div class="actions">
+            <button type="submit" class="btn">Send message</button>
+            <button type="reset" class="btn btn-secondary">Clear form</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Bean There Cafe</p>
+    </footer>
+  </body>
+</html>

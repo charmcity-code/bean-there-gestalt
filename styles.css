@@ -1,0 +1,394 @@
+:root {
+  --brown: #3b2a20;
+  --brown-soft: #5a463a;
+  --cream: #f7f3ee;
+  --latte: #f1e6dc;
+  --line: #c9b8a8;
+  --error: #a4001c;
+  --ok: #1d5c2e;
+  --focus: #1a4fd8;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #fff;
+  color: var(--brown);
+  line-height: 1.6;
+}
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+.skip {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: #fff;
+  padding: 8px 12px;
+}
+.skip:focus {
+  left: 8px;
+  top: 8px;
+  z-index: 10;
+}
+
+/* View controls */
+.controls {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  flex-wrap: wrap;
+  background: #1a1a40;
+  color: #fff;
+  padding: 10px 32px;
+  font-size: 15px;
+}
+.controls fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.controls legend {
+  float: left;
+  margin-right: 12px;
+  padding: 0;
+  font-weight: bold;
+}
+.controls label {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  cursor: pointer;
+}
+.controls :focus-visible {
+  outline-color: #fff;
+}
+
+header {
+  background: var(--brown);
+  color: #fff;
+  padding: 24px 32px;
+}
+header h1 {
+  margin: 0;
+  font-size: 32px;
+}
+.tagline {
+  margin: 4px 0 0;
+  color: #f1e6dc;
+  font-size: 16px;
+}
+
+nav {
+  background: var(--latte);
+  padding: 12px 32px;
+}
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 24px;
+}
+nav a {
+  color: var(--brown);
+  font-weight: bold;
+  text-decoration: none;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 32px;
+}
+h2 {
+  color: var(--brown);
+  font-size: 26px;
+  margin: 40px 0 16px;
+}
+main > section:first-child h2 {
+  margin-top: 0;
+}
+
+.hero {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+.hero-img {
+  width: 260px;
+  height: 200px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  background:
+    radial-gradient(
+      ellipse 70px 20px at 50% 62%,
+      #e8d8c4 98%,
+      transparent 100%
+    ),
+    linear-gradient(#3b2a20, #3b2a20) 50% 34% / 84px 14px no-repeat,
+    linear-gradient(#fff, #fff) 50% 40% / 100px 60px no-repeat,
+    #c8a27c;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.card {
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 18px;
+}
+.card h3 {
+  margin: 0;
+  font-size: 18px;
+}
+.card .price {
+  margin: 2px 0 8px;
+  font-weight: bold;
+}
+.card .desc {
+  margin: 0;
+  color: var(--brown-soft);
+  font-size: 15px;
+}
+.hours {
+  margin-top: 20px;
+  color: var(--brown-soft);
+}
+
+/* Form: refined */
+form {
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 24px;
+  display: grid;
+  gap: 28px;
+}
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+}
+legend {
+  font-weight: bold;
+  font-size: 18px;
+  padding: 0;
+  margin-bottom: 12px;
+}
+.field {
+  display: grid;
+  gap: 4px;
+}
+label {
+  font-weight: bold;
+}
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  font: inherit;
+  padding: 10px;
+  border: 2px solid var(--brown-soft);
+  border-radius: 4px;
+  background: #fff;
+  color: var(--brown);
+  width: 100%;
+  max-width: 480px;
+}
+.hint {
+  margin: 0;
+  font-size: 14px;
+  color: var(--brown-soft);
+}
+.error {
+  display: none;
+  margin: 0;
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--error);
+}
+/* Show an error only after the visitor has interacted with a field and it is invalid */
+:user-invalid ~ .error {
+  display: block;
+}
+input:user-invalid,
+select:user-invalid,
+textarea:user-invalid {
+  border-color: var(--error);
+}
+.actions {
+  display: flex;
+  gap: 12px;
+}
+.btn {
+  font: inherit;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 4px;
+  border: 2px solid var(--brown);
+  background: var(--brown);
+  color: #fff;
+  cursor: pointer;
+}
+.btn-secondary {
+  background: #fff;
+  color: var(--brown);
+}
+
+footer {
+  background: var(--brown);
+  color: #fff;
+  text-align: center;
+  padding: 16px;
+  margin-top: 32px;
+}
+
+/* ---------- MESSY VIEW: same HTML, weaker Gestalt design ---------- */
+:root:has(#view-messy:checked) nav ul {
+  gap: 0;
+}
+:root:has(#view-messy:checked) nav li:nth-child(1) {
+  margin-right: 8px;
+}
+:root:has(#view-messy:checked) nav li:nth-child(2) {
+  margin-right: 70px;
+}
+:root:has(#view-messy:checked) .hero {
+  display: block;
+}
+:root:has(#view-messy:checked) .hero-img {
+  background: #cdb08f;
+  width: 100%;
+  height: 120px;
+  margin-bottom: 0;
+}
+:root:has(#view-messy:checked) .hero-text {
+  color: #8a6f5d;
+}
+:root:has(#view-messy:checked) .hero-text h2 {
+  color: #a38a78;
+}
+:root:has(#view-messy:checked) .cards {
+  display: block;
+}
+:root:has(#view-messy:checked) .card {
+  background: none;
+  border: 0;
+  padding: 0;
+  border-radius: 0;
+}
+:root:has(#view-messy:checked) .card:nth-child(2) {
+  font-style: italic;
+}
+:root:has(#view-messy:checked) .card h3 {
+  margin: 0 0 22px;
+}
+:root:has(#view-messy:checked) .card .price {
+  margin: 0 0 22px;
+}
+:root:has(#view-messy:checked) .card .desc {
+  margin: 0 0 22px;
+}
+:root:has(#view-messy:checked) form {
+  background: none;
+  border: 0;
+  padding: 0;
+  gap: 0;
+}
+:root:has(#view-messy:checked) fieldset {
+  gap: 0;
+}
+:root:has(#view-messy:checked) legend {
+  font-size: 14px;
+  font-weight: normal;
+  margin-bottom: 0;
+}
+:root:has(#view-messy:checked) .field {
+  gap: 0;
+  margin-bottom: 8px;
+}
+:root:has(#view-messy:checked) .field label {
+  margin-bottom: 26px;
+}
+:root:has(#view-messy:checked) .hint {
+  margin-bottom: 26px;
+}
+:root:has(#view-messy:checked) :root:has(#view-messy:checked) .actions {
+  margin-top: 12px;
+}
+:root:has(#view-messy:checked) .btn {
+  background: #fff;
+  color: var(--brown);
+  border: 1px solid var(--line);
+  font-weight: normal;
+  border-radius: 0;
+  padding: 4px 10px;
+  font-size: 13px;
+}
+:root:has(#view-messy:checked) .btn-secondary {
+  background: var(--brown);
+  color: #fff;
+  border-radius: 20px;
+  padding: 14px 30px;
+  font-size: 18px;
+}
+
+/* ---------- Gestalt label overlay ---------- */
+:root:has(#overlay:checked) [data-gestalt] {
+  outline: 3px dashed #1a4fd8;
+  outline-offset: 4px;
+  position: relative;
+}
+:root:has(#overlay:checked) [data-gestalt]::after {
+  content: attr(data-gestalt);
+  position: absolute;
+  top: -14px;
+  right: 4px;
+  background: #1a4fd8;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 10px;
+  z-index: 5;
+}
+:root:has(#overlay:checked) .hero-img {
+  overflow: visible;
+}
+
+@media (max-width: 700px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  main,
+  header,
+  nav,
+  .controls {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
